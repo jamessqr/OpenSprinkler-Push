@@ -21,12 +21,11 @@ Boot up the image replacing 2015-02-16-raspbian-wheezy.img with the image you do
 In the qemu console, add the following file and lines to deal with the disk:
 
 	$ vi /etc/udev/rules.d/90-qemu.rules
-	
-	```
-	KERNEL=="sda", SYMLINK+="mmcblk0"
-	KERNEL=="sda?", SYMLINK+="mmcblk0p%n"
-	KERNEL=="sda2", SYMLINK+="root"
-	```
+
+	    KERNEL=="sda", SYMLINK+="mmcblk0"
+	    KERNEL=="sda?", SYMLINK+="mmcblk0p%n"
+	    KERNEL=="sda2", SYMLINK+="root"
+
 Resize the image now on your host:
 
 	$ qemu-img resize 2015-02-16-raspbian-wheezy.img +8G
